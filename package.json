@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --host 0.0.0.0",
     "start-https": "webpack-dev-server --https",
-    "build": "webpack --mode production",
+    "build": "rimraf dist && concurrently -n webpack,typescript 'webpack --mode=production' 'npm run typescript'",
     "analyze": "webpack --mode=production --env.analyze=true",
     "lint": "eslint src --ext tsx",
     "prettier": "prettier",
